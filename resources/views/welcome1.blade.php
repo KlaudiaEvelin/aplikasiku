@@ -13,7 +13,8 @@
             <!-- Button list -->
             <li>
                 <ul>
-                    <button>Home</button>
+                    <a href="https://www.instagram.com/clauveris_/"><button>Home</button></a>
+                    
                 </ul>
                 <ul>
                     <button>Journal</button>
