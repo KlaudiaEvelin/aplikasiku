@@ -1,16 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('main');
+use App\Models\User;
+
+Route::get('/test', function () {
+    return User::all();
 });
 
-// Di dalam routes/web.php
-Route::get('/', function () {
-    return view('home'); // akan memanggil file resources/views/home.blade.php
+Route::middleware('guest')->group(function () {
+    Route::get('/login', [AuthController::class, 'loginView'])->name('login');
+    Route::post('/login', [AuthController::class, 'login']);
+    Route::get('/registrasi', [AuthController::class, 'registerView'])->name('register');
+    Route::post('/registrasi', [AuthController::class, 'register']);
 });
 
-Route::get('/journal', function () {
-    return view('journal'); // akan memanggil file resources/views/journal.blade.php
-});
+Route::redirect('/', '/login');
