@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\COntrollers\TreeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
@@ -17,3 +18,8 @@ Route::middleware('guest')->group(function () {
 });
 
 Route::redirect('/', '/login');
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/pohon', [TreeController::class, 'index']);
