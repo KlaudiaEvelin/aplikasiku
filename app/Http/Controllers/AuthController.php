@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Storage;
 class AuthController extends Controller
 {
     public function loginView() {
@@ -60,4 +60,52 @@ class AuthController extends Controller
         $request->session()->regenerateToken();
         return redirect('/login');
     }
+
+    public function profile()
+{
+    return view('profil', [
+        'user' => Auth::user()
+    ]);
+}
+
+    public function editProfile()
+{
+    return view('profil-edit', [
+        'user' => Auth::user()
+    ]);
+}
+public function updateProfile(Request $request)
+{
+    $user = Auth::user();
+
+    $request->validate([
+        'display_name' => 'nullable|max:100',
+        'profile_img' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        'header_img' => 'nullable|image|mimes:jpg,jpeg,png|max:4096',
+    ]);
+
+    $user->display_name = $request->display_name;
+
+    if ($request->hasFile('profile_img')) {
+
+        $profilePath = $request->file('profile_img')
+            ->store('profile_img', 'public');
+
+        $user->profile_img = $profilePath;
+    }
+
+    if ($request->hasFile('header_img')) {
+
+        $headerPath = $request->file('header_img')
+            ->store('header_img', 'public');
+
+        $user->header_img = $headerPath;
+    }
+
+    $user->save();
+
+    return redirect()
+        ->route('profil')
+        ->with('success', 'Profil berhasil diperbarui.');
+}
 }

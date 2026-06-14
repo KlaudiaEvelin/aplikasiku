@@ -5,6 +5,9 @@
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 </head>
 <body>
+    <a href="{{ route('profil') }}">
+    Profil Saya
+    </a>
     <form action="{{ route('logout') }}" method="POST" style="text-align: right; margin: 20px;">
         @csrf
         <button type="submit">Logout</button>

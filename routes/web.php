@@ -44,3 +44,24 @@ Route::get('/debug-auth', function () {
     ];
 });
     
+Route::middleware('auth')->group(function () {
+    Route::get('/pohon', [TreeController::class, 'index'])->name('pohon');
+
+    Route::get('/profil', [AuthController::class, 'profile'])
+        ->name('profil');
+
+    Route::post('/logout', [AuthController::class, 'logout'])
+        ->name('logout');
+});
+
+Route::middleware('auth')->group(function () {
+
+    Route::get('/profil', [AuthController::class, 'profile'])
+        ->name('profil');
+
+    Route::get('/profil/edit', [AuthController::class, 'editProfile'])
+        ->name('profil.edit');
+
+    Route::post('/profil/edit', [AuthController::class, 'updateProfile'])
+        ->name('profil.update');
+});
