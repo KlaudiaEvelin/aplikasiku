@@ -1,0 +1,51 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Event extends Model
+{
+    // 1. Perbaikan: 'public' menggunakan huruf kecil
+    public static function getAvailableEvent()
+    {
+        return [
+            [
+                'ID_Event'  => '001',
+                'HeaderImg' => 'https://tse4.mm.bing.net/th/id/OIP.Y2-OmmzzRT6fGKczGvrVNQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3',
+                'Title'     => 'Cherry Blossom Planting',
+                'Start'     => '12/08/27',
+                'Finish'    => '12/09/27',
+                'Status'    => 'Finished'
+            ]
+        ];
+    }
+
+    public function getID_Event()
+    {
+        return '001';
+    }
+
+    public function getEventTitle()
+    {
+        return 'Cherry Blossom Planting';
+    }
+
+    public function getEventHeader()
+    {
+        return 'https://tse4.mm.bing.net/th/id/OIP.Y2-OmmzzRT6fGKczGvrVNQHaE7?rs=1&pid=ImgDetMain&o=7&rm=3';
+    }
+
+    public function getEventStart()
+    {
+        return '12/08/27';
+    }
+    public function getEventFinish()
+    {
+        return '12/09/27';
+    }
+    public function getEventStatus()
+    {
+        return 'Finished';
+    }
+}

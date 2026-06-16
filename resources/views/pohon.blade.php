@@ -13,33 +13,56 @@
             ])
         </div>
         @endforeach
-        <label class="TotalValue"></label>
+        
+        <label class="total-value">Rp 0</label>
     </div>
 
-    
-    <script>
+<script>
+    // 1. Ambil semua elemen kartu dan label total keseluruhan secara global
     const semuaKartu = document.querySelectorAll('.tree-container');
+    const displayGrandTotal = document.querySelector('.total-value');
 
+    // Fungsi pembantu untuk menghitung total keseluruhan dari semua kartu
+    function hitungTotalKeseluruhan() {
+        let grandTotal = 0;
+
+        semuaKartu.forEach(kartu => {
+            const inputQty = kartu.querySelector('.input-quantity');
+            const labelHarga = kartu.querySelector('.tree-price');
+            
+            const hargaSatuan = parseInt(labelHarga.getAttribute('data-harga')) || 0;
+            const qty = parseInt(inputQty.value) || 0;
+
+            grandTotal += (hargaSatuan * qty);
+        });
+
+        // Update teks total akhir di luar loop
+        displayGrandTotal.innerText = 'Rp ' + grandTotal.toLocaleString('id-ID');
+    }
+
+    // 2. Berikan event listener ke setiap kartu
     semuaKartu.forEach(kartu => {
         const inputQty = kartu.querySelector('.input-quantity');
         const labelHarga = kartu.querySelector('.tree-price');
-        const displayTotal = kartu.querySelector('.label-total-donasi');
-
-        const hargaSatuan = parseInt(labelHarga.getAttribute('data-harga'));
+        const displayTotalSub = kartu.querySelector('.label-total-donasi');
+        
+        const hargaSatuan = parseInt(labelHarga.getAttribute('data-harga')) || 0;
 
         inputQty.addEventListener('input', function() {
             let qty = parseInt(inputQty.value);
 
-            // Perbaikan: Membenarkan posisi kurung isNaN
             if (isNaN(qty) || qty < 0) {
                 qty = 0;
             }
 
-            const totalHarga = hargaSatuan * qty;
+            // Hitung total untuk komponen kartu ini saja
+            const totalHargaSub = hargaSatuan * qty;
+            displayTotalSub.innerText = 'Rp ' + totalHargaSub.toLocaleString('id-ID');
 
-            displayTotal.innerText = 'Rp ' + totalHarga.toLocaleString('id-ID');
+            // Panggil fungsi untuk update total keseluruhan di bagian bawah
+            hitungTotalKeseluruhan();
         });
     });
-    
 </script>
 </body>
+</html>
