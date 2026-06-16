@@ -23,7 +23,6 @@ class Event extends Model
     {
     return $this->hasMany(Donation::class, 'id_event', 'id_event');
     }
-    
     // 1. Perbaikan: 'public' menggunakan huruf kecil
     public static function getAvailableEvent()
     {
