@@ -357,7 +357,7 @@ body{
     width: 100%;
     max-width: 1000px;
 
-    margin: 40px auto 20px;
+    margin: 100px auto 20px;
 
     display: flex;
     align-items: center;
@@ -377,4 +377,15 @@ body{
     font-weight: 600;
     color: #666;
     white-space: nowrap;
+}
+
+.donation-section{
+    width:90%;
+    max-width:1200px;
+
+    margin:50px auto 80px;
+}
+
+.section-title{
+    margin-bottom:30px;
 }
