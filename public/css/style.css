@@ -73,4 +73,205 @@
     padding-bottom: 10px;
     color: forestgreen;
 }
+/* Container Utama Form */
+.new-event-form {
+    width: 450px; /* Ukuran box yang lebih ideal */
+    background-color: #f0f0f0; /* Warna background abu-abu muda */
+    border: 3px solid #3498db; /* Border biru di sekelilingnya */
+    border-radius: 30px; /* Tikungan sudut yang mulus */
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Membuat isi form memanjang ke bawah */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar elemen */
+}
 
+/* Judul "Create New Event" */
+.new-event-form h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Pengaturan Label */
+.new-event-form label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: -5px; /* Mendekatkan label ke inputnya */
+}
+
+/* Style untuk Input Text (Title & Header) */
+.new-event-form input[type="text"],
+.new-event-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    background-color: #cccccc; /* Warna abu-abu input sesuai mock-up */
+    border: none;
+    border-radius: 12px; /* Membuat sudut input rounded */
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Placeholder agar teks "Type here..." berwarna abu-abu soft */
+.new-event-form input::placeholder {
+    color: #777;
+}
+
+/* Tombol Submit */
+.new-event-form button[type="submit"] {
+    background-color: #7a944a; /* Warna hijau kecokelatan sesuai mock-up */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 0;
+    width: 150px; /* Lebar tombol */
+    margin: 20px auto 0 auto; /* Menaruh tombol di tengah */
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.new-event-form button[type="submit"]:hover {
+    background-color: #63793a; /* Efek gelap sedikit saat di-hover */
+}
+
+/* tree form */
+/* Container Utama Form */
+.new-tree-form {
+    width: 450px; /* Ukuran box yang lebih ideal */
+    background-color: #f0f0f0; /* Warna background abu-abu muda */
+    border: 3px solid #3498db; /* Border biru di sekelilingnya */
+    border-radius: 30px; /* Tikungan sudut yang mulus */
+    padding: 30px;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    /* Membuat isi form memanjang ke bawah */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Jarak antar elemen */
+}
+
+/* Judul "Create New Event" */
+.new-tree-form h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+
+/* Pengaturan Label */
+.new-tree-form label {
+    font-size: 16px;
+    font-weight: 500;
+    color: #333;
+    margin-bottom: -5px; /* Mendekatkan label ke inputnya */
+}
+
+/* Style untuk Input Text (Title & Header) */
+.new-tree-form input[type="text"],
+.new-tree-form input[type="datetime-local"] {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 16px;
+    background-color: #cccccc; /* Warna abu-abu input sesuai mock-up */
+    border: none;
+    border-radius: 12px; /* Membuat sudut input rounded */
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Placeholder agar teks "Type here..." berwarna abu-abu soft */
+.new-tree-form input::placeholder {
+    color: #777;
+}
+
+/* Tombol Submit */
+.new-tree-form button[type="submit"] {
+    background-color: #7a944a; /* Warna hijau kecokelatan sesuai mock-up */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    padding: 12px 0;
+    width: 150px; /* Lebar tombol */
+    margin: 20px auto 0 auto; /* Menaruh tombol di tengah */
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.new-tree-form button[type="submit"]:hover {
+    background-color: #63793a; /* Efek gelap sedikit saat di-hover */
+}
+
+.new-tree-form input[type="number"]{
+    width: 100%;
+    padding: 12px 15px;
+    background-color: #cccccc; /* Warna abu-abu input sesuai mock-up */
+    border: none;
+    border-radius: 12px; /* Membuat sudut input rounded */
+    box-sizing: border-box;
+    color: #333;
+}
+
+/* Menu */
+
+/* Container Utama Sidebar Menu */
+.menu {
+    background-color: #728c4d; /* Warna hijau khas mockup */
+    width: 250px;              /* Atur lebar sidebar sesuai kebutuhan */
+    height: 100vh;             /* Memenuhi tinggi layar penuh */
+    padding: 40px 20px;        /* Jarak bagian atas dan samping dalam sidebar */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;                 /* Jarak antar tombol menu */
+    box-sizing: border-box;
+}
+
+/* Styling untuk Setiap Tombol Menu (Anchor Tag) */
+.menu-item {
+    background: linear-gradient(to bottom, #cbd8c2, #a8ba99); /* Gradasi warna tombol soft-green */
+    border: 1px solid #b2c4a3;
+    border-radius: 20px;       /* Membuat sudut tombol melengkung (rounded) */
+    padding: 12px 20px;        /* Jarak dalam tombol */
+    display: flex;
+    align-items: center;       /* Memastikan ikon dan teks sejajar secara vertikal */
+    gap: 15px;                 /* Jarak antara ikon dan teks */
+    text-decoration: none;     /* Menghilangkan garis bawah text bawaan link */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15); /* Efek bayangan halus di bawah tombol */
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+/* Ukuran Ikon */
+.menu-icon {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+}
+
+/* Styling Teks Menu */
+.menu-text {
+    color: #1a2414;            /* Warna font gelap kecokelatan/hijau tua mading */
+    font-size: 18px;
+    font-weight: bold;
+    font-family: sans-serif;   /* Bisa diganti sesuai font project-mu */
+    letter-spacing: 0.5px;
+}
+
+/* Efek Interaksi saat Tombol Ditekan/Hover */
+.menu-item:hover {
+    filter: brightness(1.05);  /* Sedikit lebih cerah saat diarahkan kursor */
+}
+
+.menu-item:active {
+    transform: translateY(2px); /* Efek tertekan ke bawah */
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}

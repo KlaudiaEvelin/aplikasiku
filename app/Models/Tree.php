@@ -16,7 +16,7 @@ class Tree extends Model
         'price'
     ];
     
-    Public static function getAvailableTrees()
+    public static function getAvailableTrees()
     {
         return [
             ['ID_Tree' => '001', 'Img' => 'https://static.vecteezy.com/system/resources/previews/053/732/123/non_2x/pink-cherry-blossom-tree-in-spring-free-photo.jpeg', 'Name' => 'Cherry Blossom', 'Price' => '12000'],

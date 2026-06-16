@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\COntrollers\TreeController;
+use App\Http\Controllers\TreeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\EventController;
 use App\Models\User;
 
 use Illuminate\Support\Facades\Auth;
@@ -64,4 +64,20 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/profil/edit', [AuthController::class, 'updateProfile'])
         ->name('profil.update');
+});
+
+// Route untuk menampilkan halaman form
+Route::get('/event/create', [EventController::class, 'create'])->name('events.create');
+
+// Route untuk menerima kiriman data form
+Route::post('/event/store', [EventController::class, 'store'])->name('events.store');
+
+// Route untuk menampilkan halaman form
+Route::get('/tree/create', [TreeController::class, 'create'])->name('trees.create');
+
+// Route untuk menerima kiriman data form
+Route::post('/tree/store', [TreeController::class, 'store'])->name('trees.store');
+
+Route::get('/menu', function(){
+    return view('components.menu');
 });
