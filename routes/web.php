@@ -33,6 +33,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/events/{id}', [EventController::class, 'show'])
         ->name('events.show');
 
+    Route::get('/events/{id}/edit', [EventController::class, 'edit'])
+        ->name('events.edit');
+
+    Route::put('/events/{id}', [EventController::class, 'update'])
+        ->name('events.update');
+
     Route::get('/profil', [AuthController::class, 'profile'])
         ->name('profil');
 
@@ -45,17 +51,48 @@ Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])
         ->name('logout');
     
-    // Route untuk menerima kiriman data form
     Route::post('/events/store', [EventController::class, 'store'])->name('events.store');
 
-    // Route untuk menampilkan halaman form
-    Route::get('/tree/create', [TreeController::class, 'create'])->name('trees.create');
+    Route::get('/events/{id}/trees/create',
+    [TreeController::class, 'createForEvent'])
+    ->name('events.trees.create');
 
-    // Route untuk menerima kiriman data form
-    Route::post('/tree/store', [TreeController::class, 'store'])->name('trees.store');
+    Route::post('/events/{id}/trees/store',
+    [TreeController::class, 'storeForEvent'])
+    ->name('events.trees.store');
 
     Route::post('/donations/store',[DonationController::class, 'store'])
         ->name('donations.store');
-    });
+    
+Route::get('/tree/create',
+    [TreeController::class, 'create'])
+    ->name('trees.create');
+
+Route::post('/tree/store',
+    [TreeController::class, 'store'])
+    ->name('trees.store');
+
+Route::get(
+    '/events/{event}/trees/{tree}/remove',
+    [TreeController::class, 'removeFromEvent']
+)->name('events.trees.remove');
+
+Route::get(
+    '/events/delete/select',
+    [EventController::class, 'deleteForm']
+)->name('events.delete.form');
+
+Route::post(
+    '/events/delete/multiple',
+    [EventController::class, 'deleteMultiple']
+)->name('events.delete.multiple');
+
+Route::get('/trees/delete/select', [TreeController::class, 'deleteForm'])
+    ->name('trees.delete.form');
+
+Route::post('/trees/delete/multiple', [TreeController::class, 'deleteMultiple'])
+    ->name('trees.delete.multiple');
+});
+
 
 

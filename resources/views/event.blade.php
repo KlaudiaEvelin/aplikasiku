@@ -1,5 +1,6 @@
 @php
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 @endphp
 
 <!DOCTYPE html>
@@ -16,6 +17,25 @@ use Illuminate\Support\Str;
                 🌱 DONATE
             </a>
 
+            @if(Auth::user()->role === 'admin')
+
+                <a href="{{ route('events.create') }}"
+                    class="menu-btn">
+                    + Create Event
+                </a>
+                <a href="{{ route('trees.create') }}"
+                    class="menu-btn">
+                    🌳 Create Tree
+                </a>
+                <a href="{{ route('events.delete.form') }}"
+                class="menu-btn">
+                    🗑 Delete Event
+                </a>
+                <a href="{{ route('trees.delete.form') }}" class="menu-btn">
+                🗑 Delete Tree
+                </a>
+            @endif
+
             <a href="{{ route('profil') }}" class="menu-btn">
                 👤 ACCOUNT
             </a>
@@ -26,6 +46,11 @@ use Illuminate\Support\Str;
 
         </div>
         <div class="main-content">
+            @if(session('success'))
+                <div class="success-message">
+                    {{ session('success') }}
+                </div>
+            @endif
             <div class="event-section">
 
                 <div class="section-title">
